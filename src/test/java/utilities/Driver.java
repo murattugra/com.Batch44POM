@@ -8,6 +8,9 @@ import java.time.Duration;
 
 public class Driver {
 
+    // Driver class'i sayesinde bizim eski driver oldu
+    // artik driver'a ihtiyac varsa Driver.geDriver() yazacagiz
+
    public static WebDriver driver;
 
     public static WebDriver getDriver(){
