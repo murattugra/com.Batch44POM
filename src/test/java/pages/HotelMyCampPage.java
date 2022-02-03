@@ -6,13 +6,14 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class HotelMyCampPage {
+
     public HotelMyCampPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
+    //POM  : Framework'umuzu kurmak icin kullandigimiz modeldir
 
     @FindBy(xpath = "//a[text()='Log in']")
-    public WebElement ilkLoginLinki;
+    public WebElement ilkLoginLinki ;
 
     @FindBy(xpath = "//input[@id='UserName']")
     public WebElement usernameBox;

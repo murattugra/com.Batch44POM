@@ -15,8 +15,7 @@ public class C01_DriverIlkTest {
 
         String actualTitle=Driver.getDriver().getTitle();
         Assert.assertTrue(actualTitle.contains("Amazon"));
-            Driver.driver.manage().window().minimize();
-            Driver.closeDriver();
+        Driver.closeDriver();
     }
 
 
