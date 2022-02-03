@@ -1,35 +1,34 @@
-package tests.day16;
+package tests.day17;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 
-public class C04_HotelMyCampPositiveLogin {
-
+public class C02_PropertiesIlkClass {
 
 
     @Test
-    public void pozitifLoginTesti(){
+    public void positiveLoginTesti(){
+        // hotel My Camp sitesine positive login testini POM a tam uygun olarak yapiniz
 
-        //1 ) Bir Class olustur : PositiveTest
-        //2) Bir test method olustur positiveLoginTest()
-        //        https://www. hotelmycamp.com/adresine git
-        Driver.getDriver().get(" https://www.hotelmycamp.com/");
+        // https://www. hotelmycamp.com/ adresine git
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
         //        login butonuna bas
         HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
         hotelMyCampPage.ilkLoginLinki.click();
         //    test data username: manager ,
-        hotelMyCampPage.usernameBox.sendKeys("manager");
+        hotelMyCampPage.usernameBox.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
         //    test data password : Manager1!
-        hotelMyCampPage.passwordBox.sendKeys("Manager1!");
+        hotelMyCampPage.passwordBox.sendKeys(ConfigReader.getProperty("HMCValidPassword"));
         hotelMyCampPage.loginButonu.click();
         //    Degerleri girildiginde sayfaya basarili sekilde girilebildigini test et
         Assert.assertTrue(hotelMyCampPage.basariliGirisYaziElementi.isDisplayed());
 
 
-
-
     }
+
+
 
 }
