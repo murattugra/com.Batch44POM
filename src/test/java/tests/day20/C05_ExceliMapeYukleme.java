@@ -1,6 +1,9 @@
 package tests.day20;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public class C05_ExceliMapeYukleme {
 
@@ -16,10 +19,16 @@ public class C05_ExceliMapeYukleme {
         String sayfaAdi="Sayfa1";
 
 
+        System.out.println(ReusableMethods.mapOlustur(path,sayfaAdi));
 
-        ReusableMethods.mapOlustur(path,sayfaAdi);
+        // turkiye nin bilgilerii getirin
+        Map<String,String> ulkelerMap=ReusableMethods.mapOlustur(path,sayfaAdi);
 
+        System.out.println(ulkelerMap.get("Turkey"));
 
+        // Listede Netherlands oldugunu testedin
+
+        Assert.assertTrue(ulkelerMap.containsKey("Netherlands"));
 
 
     }
