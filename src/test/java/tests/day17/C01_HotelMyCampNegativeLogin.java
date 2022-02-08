@@ -8,7 +8,7 @@ import utilities.Driver;
 public class C01_HotelMyCampNegativeLogin {
 
 
-    @Test
+    @Test(groups = "smoke,regression")
     public void negativeTest(){
 
         // 1 ) Bir Class olustur : NegativeTest

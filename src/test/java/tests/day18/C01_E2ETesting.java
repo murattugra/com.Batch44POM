@@ -60,5 +60,6 @@ public class C01_E2ETesting {
 
 
         //10. OK butonuna tıklayın.
+        Driver.closeDriver();
     }
 }
