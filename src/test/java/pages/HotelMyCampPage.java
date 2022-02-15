@@ -7,14 +7,13 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class HotelMyCampPage {
-
     public HotelMyCampPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    //POM  : Framework'umuzu kurmak icin kullandigimiz modeldir
+
 
     @FindBy(xpath = "//a[text()='Log in']")
-    public WebElement ilkLoginLinki ;
+    public WebElement ilkLoginLinki;
 
     @FindBy(xpath = "//input[@id='UserName']")
     public WebElement usernameBox;
@@ -25,13 +24,13 @@ public class HotelMyCampPage {
     @FindBy(xpath = "//input[@id='btnSubmit']")
     public WebElement loginButonu;
 
-    @FindBy(xpath = "//span[text()='Try again please']")
-    public  WebElement girisYapilamadiYaziElementi;
+    @FindBy(xpath = "//div[@class='validation-summary-errors']")
+    public WebElement girisYapilamadiYaziElementi;
 
     @FindBy(xpath="//span[text()='ListOfUsers']")
     public WebElement basariliGirisYaziElementi;
 
-    @FindBy(xpath = "//span[.='Hotel Management']")
+    @FindBy(xpath = "//span[text()='Hotel Management']")
     public WebElement hotelManagementLinki;
 
     @FindBy(xpath = "//a[@href='/admin/HotelAdmin']")
@@ -40,25 +39,14 @@ public class HotelMyCampPage {
     @FindBy(xpath = "//a[@class='btn btn-circle btn-default']")
     public WebElement addHotelLinki;
 
-
     @FindBy(xpath = "//input[@id='Code']")
     public WebElement addHotelCodeKutusu;
 
     @FindBy ( xpath="//select[@id='IDGroup']")
     public WebElement addHotelDropdown;
 
-    @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement addHotelSaveSuccesWord;
-
-
-    public void girisYap(){
-        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
-        ilkLoginLinki.click();
-        usernameBox.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
-        passwordBox.sendKeys(ConfigReader.getProperty("HMCValidPassword"));
-        loginButonu.click();
-
-    }
+    @FindBy(xpath = "//button[@id='btnSubmit']")
+    public WebElement addHotelSaveButonu;
 
 
 
@@ -69,5 +57,14 @@ public class HotelMyCampPage {
             e.printStackTrace();
         }
     }
+
+    public void girisYap(){
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
+        ilkLoginLinki.click();
+        usernameBox.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
+        passwordBox.sendKeys(ConfigReader.getProperty("HMCValidPassword"));
+        loginButonu.click();
+    }
+
 
 }
